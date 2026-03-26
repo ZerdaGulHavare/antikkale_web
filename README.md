@@ -1,21 +1,27 @@
-# AntikKale Züccaciye & Hediyelik Eşya 🏺✨
+# Antik Kale Züccaciye & Hediyelik Eşya 🏺✨
 
-Bu proje, Hatay/Defne'de bulunan **AntikKale** dükkanı için geliştirilmiş, modern ve kullanıcı dostu bir e-ticaret vitrin sitesidir. Bir bilgisayar mühendisi adayı olarak, yerel bir işletmenin dijital dünyaya adım atmasını sağlamak amacıyla tasarlanmıştır.
+Bu proje, Hatay/Defne'de bulunan **Antik Kale** dükkanı için geliştirilmiş, modern ve kullanıcı dostu bir e-ticaret vitrin sitesidir. Bir bilgisayar mühendisi adayı olarak, yerel bir işletmenin dijital dünyaya adım atmasını sağlamak amacıyla tasarlanmıştır.
 
 ## 🚀 Canlı Önizleme
 Siteye şu adresten ulaşabilirsiniz: [antikkale.com](https://antikkale.com)
 
-### 🖥️ Ekran Görüntüleri
+## 📸 Ekran Görüntüleri (Galeri)
 
-#### Web Görünümü
-<p align="center">
-  <img src="assets/giris_web.png" width="800">
-</p>
+Bir bilgisayar mühendisi titizliğiyle geliştirilen **responsive (duyarlı)** tasarımın farklı cihazlardaki görünümleri:
 
-#### Mobil Görünüm
-<p align="center">
-  <img src="assets/urun_mobil.png" width="250">
-</p>
+### 🖥️ Masaüstü Görünümleri
+
+| Giriş Sayfası | Ürünler Bölümü | Konum ve İletişim |
+| :---: | :---: | :---: |
+| <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/giris_web.png?raw=true" width="400" alt="Giriş Sayfası Masaüstü"> | <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/urun_web.png?raw=true" width="400" alt="Ürünler Masaüstü"> | <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/konum_web.png?raw=true" width="400" alt="Konum Masaüstü"> |
+
+---
+
+### 📱 Mobil Görünümleri
+
+| Giriş ve Menü | Ürün Detayları | Konum ve İletişim |
+| :---: | :---: | :---: |
+| <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/giris_mobil.png?raw=true" width="200" alt="Giriş Mobil"> | <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/urun2_mobil.png?raw=true" width="200" alt="Ürün Detayları Mobil"> | <img src="https://github.com/ZerdaGulHavare/antikkale_web/blob/main/Yeni%20klas%C3%B6r/konum_mobil.png?raw=true" width="200" alt="Konum Mobil"> |
 
 ## 🛠️ Kullanılan Teknolojiler
 - **HTML5:** Sayfa yapısı ve semantik içerik.
