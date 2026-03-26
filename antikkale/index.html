@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toygarlı Antikkale AVM · Hatay Defne</title>
+  <meta property="og:title" content="Toygarlı Antikkale AVM · Hatay Defne" />
+  <meta property="og:description" content="Züccaciye, hediyelik eşya ve dekorasyonun adresi." />
+  <meta property="og:image" content="https://www.antikkale.com/resimler/logo.png" />
+  <meta property="og:url" content="https://www.antikkale.com" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/png" href="https://www.antikkale.com/resimler/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream:#fdf6ee; --sand:#f2e5d0; --warm:#e8cfa8;
+      --terr:#c0826a; --deep:#7a4f3a; --teal:#4a9b8e;
+      --white:#ffffff;
+      --shadow:0 10px 30px rgba(122,79,58,0.13);
+      --shadow-lg:0 20px 50px rgba(122,79,58,0.18);
+      --radius:20px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Nunito',sans-serif;background:var(--cream);color:#3a2e28;overflow-x:hidden;}
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(253, 246, 238, 0.95);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--warm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      height: 100px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .logo-img { height: 80px; width: auto; object-fit: contain; transition: transform 0.3s ease; }
+    .nav-links { display: flex; gap: 1rem; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--deep); font-size: .95rem; font-weight: 700; padding: .6rem 1.2rem; border-radius: 100px; transition: all 0.2s; }
+    .nav-links a:hover { background: var(--sand); color: var(--terr); }
+    .nav-links a.nav-accent { background: var(--deep); color: #fff; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 5px; }
+    .hamburger span { width: 25px; height: 3px; background: var(--deep); border-radius: 2px; }
+
+    section { scroll-margin-top: 120px; } 
+
+    /* ── HERO ── */
+    .hero{
+      min-height:92vh;
+      display:flex;flex-direction:column;
+      align-items:center;justify-content:center;
+      text-align:center;
+      padding:3rem 5vw 2rem;
+      position:relative;overflow:hidden;
+      background-image: url('resimler/zuccaciye.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(253, 246, 238, 0.7); 
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .hero-orb{position:absolute;border-radius:50%;pointer-events:none;animation:floatOrb 9s ease-in-out infinite; z-index: 1; opacity: 0.5;}
+    .hero-orb-1{width:420px;height:420px;background:radial-gradient(circle,rgba(192,130,106,.2),transparent 68%);top:-100px;right:-100px;}
+    .hero-orb-2{width:300px;height:300px;background:radial-gradient(circle,rgba(74,155,142,.16),transparent 65%);bottom:-80px;left:-80px;animation-delay:-4.5s;}
+    .hero-orb-3{width:200px;height:200px;background:radial-gradient(circle,rgba(232,207,168,.4),transparent 70%);top:40%;left:10%;animation-delay:-2s;}
+    @keyframes floatOrb{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-28px) scale(1.04)}}
+
+    .hero-dots{ position:absolute;inset:0;pointer-events:none; background-image:radial-gradient(circle,rgba(122,79,58,.08) 1px,transparent 1px); background-size:36px 36px; z-index: 1;}
+    
+    .hero-content{position:relative;z-index:2;max-width:750px;}
+    .hero-eyebrow{ display:inline-flex;align-items:center;gap:.5rem; background:var(--terr);color:#fff; font-size:.7rem;font-weight:800;letter-spacing:.18em; text-transform:uppercase;padding:.45rem 1.2rem; border-radius:100px;margin-bottom:1.8rem; }
+    .hero h1{ font-family:'Playfair Display',serif; font-size:clamp(2.8rem,7.5vw,5.5rem); font-weight:900;line-height:1.0; color:var(--deep);margin-bottom:.5rem; }
+    .hero h1 .italic{color:var(--terr);font-style:italic;display:block;font-size:108%;}
+    .hero-tagline{ font-size:1.1rem;color:#6a5648; line-height:1.75;margin-bottom:2.5rem; font-weight:600;max-width:560px;margin-left:auto;margin-right:auto; }
+
+    .hero-actions{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-bottom:3.5rem;}
+    .btn-hero{ display:inline-flex;align-items:center;gap:.55rem; padding:1rem 2.2rem;border-radius:100px; font-family:'Nunito',sans-serif;font-size:.97rem;font-weight:800; text-decoration:none;transition:transform .25s,box-shadow .25s; }
+    .btn-hero:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.18);}
+    .btn-primary{background:var(--deep);color:#fff;}
+    .btn-outline{background:transparent;color:var(--deep);border:2px solid var(--deep);}
+
+    /* ── STATS ── */
+    .stats-bar{ background:var(--deep);color:#fff; display:flex;justify-content:center;align-items:center; flex-wrap:wrap;padding:1.4rem 5vw; position: relative; z-index: 5;}
+    .stat-item{ display:flex;flex-direction:column;align-items:center; padding:.6rem 2.2rem; border-right:1px solid rgba(255,255,255,.2); }
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--warm);}
+    .stat-lbl{font-size:.7rem;font-weight:700;letter-spacing:.08em;opacity:.75;text-transform:uppercase;}
+
+    /* ── SECTION ── */
+    .section{padding:5rem 5vw;}
+    .section-head{text-align:center;margin-bottom:3rem;}
+    .section-title{ font-family:'Playfair Display',serif; font-size:clamp(1.9rem,4vw,2.6rem); color:var(--deep);margin-bottom:.5rem; }
+    .divider-line{ width:52px;height:4px; background:linear-gradient(90deg,var(--terr),var(--teal)); border-radius:4px;margin:.8rem auto 0; }
+
+    /* ── FILTER ── */
+    #filterBar{display:flex;flex-wrap:wrap;gap:.8rem;margin-bottom:3rem;justify-content:center;}
+    .filter-btn{ padding:.6rem 1.5rem;border-radius:50px; border:2px solid var(--warm);background:#fff; color:var(--deep);font-weight:700;font-size:.88rem; cursor:pointer;transition:all .25s; }
+    .filter-btn.active{background:var(--deep);color:#fff;border-color:var(--deep);}
+
+    /* ── ÜRÜN GRID ── */
+    .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem;}
+    .prod-card{ background:var(--white);border-radius:var(--radius); overflow:hidden;box-shadow:var(--shadow); display:flex;flex-direction:column; transition:transform .3s,box-shadow .3s; cursor:zoom-in; }
+    .prod-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg);}
+    .prod-img{height:240px;display:flex;align-items:center;justify-content:center;background:var(--sand);overflow:hidden;position:relative;}
+    .prod-img img{width:100%;height:100%;object-fit:contain;} 
+    
+    .zoom-overlay{ position:absolute;inset:0; display:flex;align-items:center;justify-content:center; opacity:0;transition:.3s; font-size:.75rem;font-weight:800;color:#fff; }
+    .prod-card:hover .zoom-overlay{opacity:1;background:rgba(122,79,58,.26);}
+    .prod-body{padding:1.4rem 1.5rem 1rem;flex:1;}
+    .prod-cat{font-size:.7rem;color:var(--teal);font-weight:800;text-transform:uppercase;margin-bottom:.5rem;}
+    .prod-body h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--deep);margin-bottom:.5rem;}
+    .prod-desc{font-size:.84rem;color:#7a6a5e;line-height:1.55;}
+
+    .prod-contact-bar{display:flex;gap:.6rem;padding:.9rem 1.5rem 1.3rem;}
+    .contact-btn{ flex:1;display:flex;align-items:center;justify-content:center; gap:6px;padding:10px;border-radius:12px; text-decoration:none;font-weight:700;font-size:.82rem; color:white;transition:transform .2s; }
+    .c-ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
+    .c-wa{background:#25d366;}
+
+    /* ── MOBİLDE YAN YANA 2 KART ── */
+    @media (max-width: 600px) {
+      .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 5px; }
+      .prod-img { height: 160px; }
+      .prod-body { padding: 0.8rem; }
+      .prod-body h3 { font-size: 0.85rem; line-height: 1.2; height: 2.4em; overflow: hidden; }
+      .prod-desc { display: none; }
+      .prod-contact-bar { padding: 0.5rem; flex-direction: column; gap: 4px; }
+      .contact-btn { font-size: 0.7rem; padding: 6px 4px; }
+      .contact-btn svg { width: 12px; height: 12px; }
+    }
+
+    /* ── YUKARI ÇIK BUTONU ── */
+    #backToTop {
+      position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+      background: var(--deep); color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 24px; box-shadow: var(--shadow-lg);
+      opacity: 0; visibility: hidden; transition: all 0.3s; z-index: 1000;
+      border: 2px solid var(--warm);
+    }
+    #backToTop.show { opacity: 1; visibility: visible; }
+
+    /* ── LIGHTBOX ── */
+    #lightbox{ position:fixed;inset:0;background:rgba(10,5,3,.94); z-index:2000;display:none;align-items:center; justify-content:center;padding:20px;cursor:zoom-out; }
+    #lightbox.open{display:flex;}
+    #lightbox img{max-width:90vw;max-height:86vh;border-radius:10px;object-fit:contain;}
+    .close-btn{position:fixed;top:18px;right:26px;color:white;font-size:44px;font-weight:bold;cursor:pointer;z-index:2001;background:none;border:none;}
+
+    footer{background:var(--deep);color:rgba(255,255,255,.82);text-align:center;padding:3rem 5vw;font-size:.95rem;}
+
+    @media(max-width:700px){
+      nav { height: 80px; }
+      .logo-img { height: 60px; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: var(--cream); padding: 1.2rem 5vw; border-bottom: 1px solid var(--warm); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <img src="resimler/logo.png" alt="Logo" class="logo-img" style="height: 120px; width: auto;">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#vitrin">🛍️ Ürünler</a></li>
+    <li><a href="#konum" class="nav-accent">📍 Konum</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero">
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-dots"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ Hatay · Toygarlı · Antikkale</div>
+    <h1>Toygarlı <span class="italic">Antikkale AVM</span></h1>
+    <p class="hero-tagline">Züccaciye, hediyelik eşya, dekorasyon ve daha fazlası…<br/>Evinize değer katan en seçkin ürünler tek bir çatı altında.</p>
+    <div class="hero-actions">
+      <a class="btn-hero btn-primary" href="#vitrin">🛍️ Ürünlerimizi Gör</a>
+      <a class="btn-hero btn-outline" href="#konum" style="background:transparent; color:var(--deep); border:2px solid var(--deep);">📍 Konumu Gör</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat-item"><span class="stat-num">5+</span><span class="stat-lbl">Kategori</span></div>
+  <div class="stat-item"><span class="stat-num">1000+</span><span class="stat-lbl">Ürün</span></div>
+  <div class="stat-item"><span class="stat-num">💬</span><span class="stat-lbl">Hızlı Sipariş</span></div>
+  <div class="stat-item"><span class="stat-num">📍</span><span class="stat-lbl">Hatay Çekmece Toygarlı</span></div>
+</div>
+
+<section class="section" id="vitrin">
+  <div class="section-head">
+    <div class="section-title">Mağaza Vitrini</div>
+    <div class="divider-line"></div>
+  </div>
+  <div id="filterBar"></div>
+  <div class="prod-grid" id="prodGrid"></div>
+</section>
+
+<section class="section" id="konum" style="background:var(--sand);">
+  <div class="section-head">
+    <div class="section-title">Daha fazlası için bizimle iletişime geçin.</div>
+    <p style="color:var(--deep); font-weight:600; margin-top:10px;">Hatay Toygarlı'daki mağazamıza bekleriz.</p>
+    <div class="divider-line"></div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:2rem; max-width:1100px; margin:0 auto;">
+    <div style="background:var(--white); padding:2rem; border-radius:var(--radius); box-shadow:var(--shadow);">
+      <h3 style="font-family:'Playfair Display', serif; color:var(--deep); margin-bottom:1.5rem;">İletişim Detayları</h3>
+      <p style="margin-bottom:1rem;"><strong>📍 Adres:</strong> Toygarlı Mahallesi, Fevzi Çakmak Caddesi, Defne/Hatay</p>
+      <p style="margin-bottom:1rem;"><strong>📞 Telefon:</strong> <a href="tel:+905350303810" style="color:var(--deep); text-decoration:none;">0535 030 3810</a></p>
+      <p style="margin-bottom:1.5rem;"><strong>⏰ Saatler:</strong> Pazartesi - Cumartesi: 09:00 - 20:00</p>
+      <div style="display:flex; gap:10px;">
+        <a href="https://wa.me/905350303810" target="_blank" style="background:#25d366; color:white; padding:12px; border-radius:12px; text-decoration:none; font-weight:700; flex:1; text-align:center;">WhatsApp</a>
+        <a href="https://instagram.com/toygarli_cekmece_antikkale_avm" target="_blank" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:white; padding:12px; border-radius:12px; text-decoration:none; font-weight:700; flex:1; text-align:center;">Instagram</a>
+      </div>
+    </div>
+    <div style="border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); height:450px;">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3219.106037919436!2d36.074621300000004!3d36.2126175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1525dd2d24c7ca8f%3A0x49c6be8f709e4bac!2sANT%C4%B0KKALE%20AVM%20-%20Toygarl%C4%B1!5e0!3m2!1str!2str!4v1774506797237!5m2!1str!2str" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<a href="#" id="backToTop" title="Yukarı Çık">↑</a>
+
+<div id="lightbox" onclick="closeLightbox()">
+  <button class="close-btn" onclick="closeLightbox()">✕</button>
+  <img id="lbImg" src="">
+</div>
+
+<footer><strong>Toygarlı Antikkale</strong><br/>© 2026 Tüm Hakları Saklıdır.</footer>
+
+<script>
+const WA_NUM = "905350303810";
+const categoryOrder = ["Züccaciye","Hediyelik","Dekorasyon","Kozmetik","Hırdavat"];
+let activeFilter = 'Tümü';
+
+const items = [
+  { img: "kahve_fincan_1.jpeg", cat: "Züccaciye", name: "Altın İşlemeli Kahve Seti", desc: "12 kişilik, porselen lüks takım." },
+  { img: "kahve_fincan_2.jpeg", cat: "Züccaciye", name: "Desenli Kahve Seti", desc: "12 kişilik,lüks takım." },
+  { img: "kahve_fincan_3.jpeg", cat: "Züccaciye", name: "Saat Desenli Kahve Seti", desc: "6 kişilik, lüks takım." },
+  { img: "aparat_3.jpeg", cat: "Hırdavat", name: "Mutfak Pürmüzü", desc: "Ayarlanabilir alevli, profesyonel brülör." },
+  { img: "oyuncak_1.jpeg", cat: "Hediyelik", name: "Oyuncak Ayı Seti", desc: "Oyuncak ayı." },
+  { img: "fon_1.jpeg", cat: "Kozmetik", name: "Saç Kurutma Makinesi", desc: "Günlük bakım için ideal kozmetik ürünü." },
+  { img: "aparat_1.jpeg", cat: "Hırdavat", name: "Wireless Kapı Zili", desc: "32 melodili, kablosuz ve pilli zil seti." },
+  { img: "aparat_2.jpeg", cat: "Hırdavat", name: "HTC-1 Dijital Termometre", desc: "Sıcaklık, nem ve saat göstergeli LCD ekran." },
+  { img: "aparat_4.jpeg", cat: "Hırdavat", name: "Bütan Propan Gaz Kartuşu", desc: "450g, vidalı sistem yüksek verimli yedek tüp." },
+  { img: "aparat_5.jpeg", cat: "Hırdavat", name: "Mini Hava Kompresörü", desc: "150 PSI, 12V çakmaklık girişli taşınabilir pompa." },
+  { img: "aparat_6.jpeg", cat: "Hırdavat", name: "Lastik Tamir Kiti", desc: "400ml, krikosuz onarıcı ve şişirici sprey." },
+  { img: "bardak_1.jpeg", cat: "Züccaciye", name: "Ayaklı Cam Sunum Bardağı", desc: "Estetik formlu 6 adet dekoratif kadeh." },
+  { img: "saat_1.jpeg", cat: "Dekorasyon", name: "Sokak Manzaralı Duvar Saati", desc: "Altın çerçeveli, nostaljik saat." },
+  { img: "saat_3.jpeg", cat: "Dekorasyon", name: "Londra Temalı Duvar Saati", desc: "Kule ve pembe çiçek desenli, klasik dekoratif saat." },
+  { img: "saat_2.jpeg", cat: "Dekorasyon", name: "Yelkenli Gemi Duvar Saati", desc: "Deniz temalı, ışıltılı kristal işlemeli tasarım saat." },
+  { img: "saat_4.jpeg", cat: "Dekorasyon", name: "Gece Sokağı Duvar Saati", desc: "Lamba yansımalı, sanatsal derinlikli dekoratif saat." },
+  { img: "bitki_1.jpeg", cat: "Dekorasyon", name: "Renkli Yapay Çiçek", desc: "Siyah saksıda, canlı renkli dekoratif bitki." },
+  { img: "bitki_2.jpeg", cat: "Dekorasyon", name: "Yapay Yeşil Bitki", desc: "Saksıda, doğal görünümlü yapay yeşillik." },
+  { img: "bitki_3.jpeg", cat: "Dekorasyon", name: "Yapay Sukulent Aranjmanı", desc: "Çeşitli sukulent aranjmanı" },
+  { img: "kavanoz_1.jpeg", cat: "Züccaciye", name: "Cam Kavanoz", desc: "Pratik kullanıma uygun cam kavanoz." },
+  { img: "kavanoz_2.jpeg", cat: "Züccaciye", name: "Cam Şekerlik", desc: "Kapaklı, dekoratif işlemeli, sunum kasesi." },
+  { img: "kolye_1.jpeg", cat: "Hediyelik", name: "Kolye", desc: "Zarif ve şık kolye." },
+  { img: "kolye_2.jpeg", cat: "Hediyelik", name: "Kalp Desenli Kolye", desc: "Zarif ve şık kolye." },
+  { img: "kolye_3.jpeg", cat: "Hediyelik", name: "Kolye", desc: "Zarif ve şık kolye." },
+  { img: "kolye_4.jpeg", cat: "Hediyelik", name: "Kolye", desc: "Zarif ve şık kolye." },
+  { img: "kolye_5.jpeg", cat: "Hediyelik", name: "Kolye", desc: "Zarif ve şık kolye." },
+  { img: "kolye_6.jpeg", cat: "Hediyelik", name: "Kolye", desc: "Zarif ve şık kolye." },
+  { img: "lamba_1.jpeg", cat: "Hediyelik", name: "Nostaljik Lamba ", desc: "Siyah metal gövdeli, pilli ve askılı dekoratif fener." },
+  { img: "lamba_2.jpeg", cat: "Hediyelik", name: "Gümüş Kristal Gece Lambası", desc: "Peri ledli, gümüş kaplama dekoratif lamba." },
+  { img: "kap_1.jpeg", cat: "Züccaciye", name: "Bölmeli Saklama Kabı", desc: "Şeffaf kapaklı, sızdırmaz erzak kabı." },
+  { img: "kap_2.jpeg", cat: "Züccaciye", name: "Erzak Seti", desc: "Hava almayan kapaklı, şeffaf plastik saklama kabı." },
+  { img: "masa_ortu_1.jpeg", cat: "Züccaciye", name: "Dantel Detaylı Masa Örtüsü", desc: "Leke tutmaz kumaş, kenarları dantel işlemeli şık örtü." },
+  { img: "masa_ortu_2.jpeg", cat: "Züccaciye", name: "Masa Örtüsü", desc: "Modern desenli,dekoratif masa örtüsü." },
+  { img: "lamba_3.jpeg", cat: "Hırdavat", name: "Astra Şarjlı Işıldak", desc: "Mavi gövdeli, yüksek parlaklıklı LED lambası." },
+  { img: "lamba_4.jpeg", cat: "Hırdavat", name: "Mini El Feneri", desc: "Kırmızı-siyah gövdeli, pilli ve ergonomik el feneri." },
+  { img: "lamba_5.jpeg", cat: "Hırdavat", name: "Şarj Edilebilir El Feneri", desc: "USB girişli, mavi-beyaz gövdeli portatif LED fener." },
+  { img: "lamba_6.jpeg", cat: "Hediyelik", name: "Üçgen Kristal Gece Lambası", desc: "Sarı ışıklı, piramit tasarımlı şeffaf dekoratif lamba." },
+  { img: "ses_bomba_1.jpeg", cat: "Hediyelik", name: "Taşınabilir Hoparlör", desc: "Bluetooth bağlantılı, RGB LED aydınlatmalı ses bombası." },
+  { img: "ses_bomba_2.jpeg", cat: "Hediyelik", name: "Mini Kablosuz Hoparlör", desc: "Kancalı tasarım, taşınabilir kompakt Bluetooth hoparlör." },
+  { img: "ses_bomba_3.jpeg", cat: "Hediyelik", name: "Nostaljik Ahşap Hoparlör", desc: "Retro görünümlü, USB ve Bluetooth destekli şarjlı hoparlör." },
+  { img: "ses_bomba_4.jpeg", cat: "Hediyelik", name: "Pikap Tasarımlı Hoparlör", desc: "Gramofon tarzı, modern teknoloji ile birleşen dekoratif ses sistemi." },
+  { img: "sus_1.jpeg", cat: "Hediyelik", name: "Yapay Çam Ağacı", desc: "Yılbaşı ve dekorasyon için uygun, ayaklı yeşil yapay ağaç." },
+  { img: "sus_2.jpeg", cat: "Hediyelik", name: "Renkli Yılbaşı Topları", desc: "6'lı paket, parlak yüzeyli dekoratif süsleme topları." },
+  { img: "sus_3.jpeg", cat: "Hediyelik", name: "Mini Dekoratif Davullar", desc: "Paketli ve renkli davul seti." },
+  { img: "sus_4.jpeg", cat: "Hediyelik", name: "Noel Baba Figürleri", desc: "Asılabilir, peluş detaylı mini Noel Baba süsleme seti." },
+  { img: "sus_5.jpeg", cat: "Hırdavat", name: "10 Metre RGB LED Şerit", desc: "Uzaktan kumandalı ve uygulama kontrollü aydınlatma." },
+  { img: "sus_6.jpeg", cat: "Hediyelik", name: "Aşk Temalı Kar Küresi", desc: "Romantik figürlü dekoratif kar küresi." },
+  { img: "sus_7.jpeg", cat: "Hediyelik", name: "Pembe Kalpli Kar Küresi", desc: "Pembe gül detaylı kalp çerçeve içinde çocuk figürlü kar küresi." },
+  { img: "sus_8.jpeg", cat: "Hediyelik", name: "Unicornlu Romantik Kar Küresi", desc: "Pembe unicorn ve yıldızlı çift figürlü, 'Romantic Starry Sky' yazılı küre." },
+  { img: "sus_9.jpeg", cat: "Hediyelik", name: "Balerin Kar Küresi", desc: "Fuşya çiçekli taban üzerinde estetik balerin figürlü dekoratif küre." },
+  { img: "sus_10.jpeg", cat: "Hediyelik", name: "Kırmızı Kalpli Kar Küresi", desc: "Canlı kırmızı gül çerçeveli ve dalgalı kaideli romantik kar küresi." },
+  { img: "sus_11.jpeg", cat: "Hediyelik", name: "Mor Bahçeli Kar Küresi", desc: "Mor çiçekli taban ve arka plan önünde 'Love' yazılı çift figürü." },
+  { img: "sus_12.jpeg", cat: "Hediyelik", name: "Düğün Temalı Kar Küresi", desc: "Mor detaylı kalp önünde gelin ve damat figürlü nikah/hediyelik küresi." },
+  { img: "sus_13.jpeg", cat: "Hediyelik", name: "Yıldızlı 'Sweet' Kar Küresi", desc: "Pembe tabanlı, sarı yıldız süslemeli ve birbirine sarılan çift figürlü küre." },
+  { img: "sus_14.jpeg", cat: "Hediyelik", name: "Pembe Gökyüzü Kar Küresi", desc: "Büyük pembe kaideli, unicorn ve çift temalı 'Starry Sky' kar küresi." },
+  { img: "tabak_1.jpeg", cat: "Züccaciye", name: "Çizgili Cam Kase Seti", desc: "8'li mini kase ve sunum tabağı içeren cam set." },
+  { img: "tabak_2.jpeg", cat: "Züccaciye", name: "Mermer Desenli Tabak", desc: "Siyah beyaz damarlı, modern tasarımlı servis tabağı." },
+  { img: "tabak_3.jpeg", cat: "Züccaciye", name: "Çiçek Desenli Yemek Takımı", desc: "Tropikal çiçek motifli, porselen kase ve tabak koleksiyonu." },
+  { img: "tabure_1.jpeg", cat: "Hırdavat", name: "Plastik Tabure ve Raf Seti", desc: "Basamaklı tabureler ve çok katlı plastik ayakkabılık düzenleyici." },
+  { img: "tepsi_1.jpeg", cat: "Züccaciye", name: "Kristal Kesim Cam Tepsi", desc: "Baklava desenli, şık sunumlar için yuvarlak cam servis tepsisi." },
+  { img: "termos_1.jpeg", cat: "Züccaciye", name: "Aile Boyu Termos", desc: "Çift katmanlı yalıtımlı sıcak/soğuk tutucu." }
+];
+
+const sorted = [...items].sort((a,b) => categoryOrder.indexOf(a.cat) - categoryOrder.indexOf(b.cat));
+
+function renderUI() {
+  document.getElementById('filterBar').innerHTML = ['Tümü',...categoryOrder].map(c =>
+    `<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${c}</button>`
+  ).join('');
+
+  const list = activeFilter==='Tümü' ? sorted : sorted.filter(p=>p.cat===activeFilter);
+  const SITE = window.location.href.replace(/index\.html.*$/,'').replace(/#.*$/,'');
+
+  document.getElementById('prodGrid').innerHTML = list.map(p => {
+    const imgPath = "resimler/" + p.img;
+    const waMsg = encodeURIComponent(`Merhaba, "${p.name}" hakkında bilgi almak istiyorum.\n\nÜrün: ${SITE}${imgPath}`);
+    return `
+    <div class="prod-card" onclick="openLightbox('${imgPath}')">
+      <div class="prod-img">
+        <img src="${imgPath}" alt="${p.name}">
+        <div class="zoom-overlay">🔍 BÜYÜT</div>
+      </div>
+      <div class="prod-body">
+        <div class="prod-cat">${p.cat}</div>
+        <h3>${p.name}</h3>
+        <p class="prod-desc">${p.desc}</p>
+      </div>
+      <div class="prod-contact-bar">
+        <a href="https://wa.me/${WA_NUM}?text=${waMsg}" target="_blank" class="contact-btn c-wa" onclick="event.stopPropagation()" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+          <svg style="width:16px; height:16px; fill:currentColor;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.473 7.618c-1.716 0-3.31-.49-4.666-1.338l-.334-.198-3.462 1.133 1.162-3.354-.218-.347a7.952 7.952 0 01-1.391-4.411c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8m0-18C6.477 2 2 6.477 2 12c0 1.99.574 3.847 1.566 5.41L2 22l4.69-1.535A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://instagram.com/toygarli_cekmece_antikkale_avm" target="_blank" class="contact-btn c-ig" onclick="event.stopPropagation()" style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+          <svg style="width:16px; height:16px; fill:currentColor;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setFilter(c) {
+  activeFilter = c;
+  renderUI();
+  const target = document.getElementById('vitrin');
+  window.scrollTo({ top: target.offsetTop - 110, behavior: 'smooth' });
+}
+
+function openLightbox(url) {
+  document.getElementById('lbImg').src = url;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }
+
+// Yukarı Çık Butonu Kontrolü
+const backToTopBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) { backToTopBtn.classList.add('show'); } 
+  else { backToTopBtn.classList.remove('show'); }
+});
+backToTopBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+renderUI();
+</script>
+</body>
+</html>
