@@ -5,6 +5,18 @@ Bu proje, Hatay/Defne'de bulunan **AntikKale** dükkanı için geliştirilmiş, 
 ## 🚀 Canlı Önizleme
 Siteye şu adresten ulaşabilirsiniz: [antikkale.com](https://antikkale.com)
 
+### 🖥️ Ekran Görüntüleri
+
+#### Web Görünümü
+<p align="center">
+  <img src="assets/giris_web.png" width="800">
+</p>
+
+#### Mobil Görünüm
+<p align="center">
+  <img src="assets/urun_mobil.png" width="250">
+</p>
+
 ## 🛠️ Kullanılan Teknolojiler
 - **HTML5:** Sayfa yapısı ve semantik içerik.
 - **CSS3:** Modern tasarım (Glassmorphism, Flexbox, Responsive Design).
